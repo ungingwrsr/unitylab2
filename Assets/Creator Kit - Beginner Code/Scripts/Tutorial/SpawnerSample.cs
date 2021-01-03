@@ -28,18 +28,18 @@ public class SpawnerSample : MonoBehaviour
         Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
     }
 
-    public class LootAngle
+     public class LootAngle
     {
         int angle;
         int step;
 
-        public LootAngle(int increment)
+         public LootAngle(int increment)
         {
             step = increment;
             angle = 0;
         }
 
-        public int NextAngle()
+         public int NextAngle()
         {
             int currentAngle = angle;
             angle = Helpers.WrapAngle(angle + step);

@@ -39,7 +39,7 @@ public class SpawnerSample : MonoBehaviour
             angle = 0;
         }
 
-        int NextAngle()
+        public int NextAngle()
         {
             int currentAngle = angle;
             angle = Helpers.WrapAngle(angle + step);

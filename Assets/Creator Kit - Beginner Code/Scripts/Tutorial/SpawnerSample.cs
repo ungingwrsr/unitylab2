@@ -7,6 +7,13 @@ public class SpawnerSample : MonoBehaviour
 
     void Start()
     {
+        LootAngle myLootAngle = new LootAngle(45);
+
+        SpawnPotion(myLootAngle.NextAngle());
+        SpawnPotion(myLootAngle.NextAngle());
+        SpawnPotion(myLootAngle.NextAngle());
+        SpawnPotion(myLootAngle.NextAngle());
+
         SpawnPotion(0);
         SpawnPotion(45);
         SpawnPotion(90);
@@ -21,6 +28,26 @@ public class SpawnerSample : MonoBehaviour
         Instantiate(ObjectToSpawn, spawnPosition, Quaternion.identity);
     }
 
-}
+    public class LootAngle
+    {
+        int angle;
+        int step;
+
+        public LootAngle(int increment)
+        {
+            step = increment;
+            angle = 0;
+        }
+
+        int NextAngle()
+        {
+            int currentAngle = angle;
+            angle = Helpers.WrapAngle(angle + step);
+
+            return currentAngle;
+        }
+    }
+
+}   
 
 
